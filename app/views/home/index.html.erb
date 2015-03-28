@@ -1,7 +1,33 @@
-<div id="music_artists_list"></div>
-
-<%= javascript_tag do %>
-  $( document ).ready(function() {
-    $('#music_artists_list').musicArtists();
-  });
+<% if params[:method].blank? || params[:method] == 'musicArtists' %>
+  <div id="music_artists_list"></div>
+  
+  <%= javascript_tag do %>
+    $( document ).ready(function() {
+      $('#music_artists_list').musicArtists();
+    });
+  <% end %>
+<% elsif params[:method] == 'musicArtist' %>
+  <div id="music_artist_page" data-artist-id="182"></div>
+  
+  <%= javascript_tag do %>
+    $( document ).ready(function() {
+      $('#music_artist_page').musicArtist();
+    });
+  <% end %>
+<% elsif params[:method] == 'musicRelease' %>
+  <div id="music_artist_page" data-release-id="2603"></div>
+  
+  <%= javascript_tag do %>
+    $( document ).ready(function() {
+      $('#music_artist_page').musicRelease();
+    });
+  <% end %>
+<% elsif params[:method] == 'musicTrack' %>
+  <div id="music_artist_page" data-track-id="15942"></div>
+  
+  <%= javascript_tag do %>
+    $( document ).ready(function() {
+      $('#music_artist_page').musicTrack();
+    });
+  <% end %>
 <% end %>
