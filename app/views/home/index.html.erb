@@ -15,19 +15,19 @@
     });
   <% end %>
 <% elsif params[:method] == 'musicRelease' %>
-  <div id="music_artist_page" data-release-id="2603"></div>
+  <div id="music_release_page" data-release-id="2603"></div>
   
   <%= javascript_tag do %>
     $( document ).ready(function() {
-      $('#music_artist_page').musicRelease();
+      $('#music_release_page').musicRelease();
     });
   <% end %>
 <% elsif params[:method] == 'musicTrack' %>
-  <div id="music_artist_page" data-track-id="15942"></div>
+  <div id="music_track_page" data-track-id="15942"></div>
   
   <%= javascript_tag do %>
     $( document ).ready(function() {
-      $('#music_artist_page').musicTrack();
+      $('#music_track_page').musicTrack();
     });
   <% end %>
 <% end %>
