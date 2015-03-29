@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/michael-harrison/jasminerice.git
-  revision: 2ff026fb3e827ae5f27e5b6cb902b500f46f4c5c
-  specs:
-    jasminerice (2.0.3)
-      coffee-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +57,12 @@ GEM
       activesupport (>= 4.1.0)
     hike (1.2.3)
     i18n (0.7.0)
+    jasmine-core (2.2.0)
+    jasmine-rails (0.10.7)
+      jasmine-core (>= 1.3, < 3.0)
+      phantomjs (< 2.0)
+      railties (>= 3.1.0)
+      sprockets-rails
     jquery-rails (4.0.3)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -79,6 +78,7 @@ GEM
     multi_json (1.11.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    phantomjs (1.9.8.0)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -133,7 +133,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.4.1)
   coffee-rails (~> 4.1.0)
-  jasminerice!
+  jasmine-rails (~> 0.10.7)
   jquery-rails
   rails (= 4.2.1)
   sqlite3

@@ -17,5 +17,5 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
 group :development, :test do
-  gem 'jasminerice', github: 'michael-harrison/jasminerice'
+  gem 'jasmine-rails', '~> 0.10.7'
 end
