@@ -82,8 +82,9 @@
                   rowHtml = "<tr class=\"even\">\n  <td style=\"width: 300px;\"><a class=\"music_artist_link\" href=\"#\" data-id=\"" + artist['id'] + "\">" + artist['name'] + "</a></td>\n  <td>" + artist['disambiguation'] + "</td>\n  <td style=\"width: 75px\">" + artist['founded_at'] + "</td>\n  <td style=\"width: 75px\">" + artist['dissolved_at'] + "</td>\n  <td style=\"width: 75px\">" + artist['listeners'] + "</td>\n</tr>";
                   return _this.$el.find('tbody').append(rowHtml);
                 });
-                _this.$el.find('.music_artist_link').on('click', function() {
+                _this.$el.find('.music_artist_link').on('click', function(event) {
                   var lastPage;
+                  event.preventDefault();
                   lastPage = _this.$el.data('current-page');
                   _this.$el.data('artist-id', $(event.target).data('id'));
                   _this.$el.data('last-artists-page', lastPage);
@@ -196,7 +197,8 @@
                   rowHtml = "<tr class=\"even\">\n  <td style=\"width: 100px\">" + release['released_at'] + "</td>\n  <td><a class=\"music_release_link\" href=\"#\" data-id=\"" + release['id'] + "\">" + release['name'] + "</a></td>\n  <td style=\"width: 75px\">" + type + "</td>\n  <td style=\"width: 75px\">" + release['listeners'] + "</td>\n</tr>";
                   return $('#music_releases tbody').append(rowHtml);
                 });
-                return _this.$el.find('.music_release_link').on('click', function() {
+                return _this.$el.find('.music_release_link').on('click', function(event) {
+                  event.preventDefault();
                   _this.$el.removeData('musicRelease');
                   _this.$el.data('release-id', $(event.target).data('id'));
                   if (_this.$el.data('musicRelease')) {
@@ -252,7 +254,8 @@
                   return _this.$el.musicArtists();
                 }
               });
-              _this.$el.find('.music_artist_link').on('click', function() {
+              _this.$el.find('.music_artist_link').on('click', function(event) {
+                event.preventDefault();
                 _this.$el.data('artist-id', $(event.target).data('id'));
                 if (_this.$el.data('musicArtist')) {
                   return _this.$el.musicArtist('showMetadata');
@@ -297,7 +300,8 @@
                   rowHtml = "<tr class=\"even\">\n  <td style=\"width: 50px; text-align:right;\">" + track['nr'] + "</td>\n  <td><a class=\"music_track_link\" href=\"#\" data-id=\"" + track['id'] + "\">" + track['name'] + "</a></td>\n  <td style=\"width: 75px;\">" + track['duration'] + "</td>\n  <td style=\"width: 75px;\">" + track['listeners'] + "</td>\n</tr>";
                   return $('#music_tracks tbody').append(rowHtml);
                 });
-                return _this.$el.find('.music_track_link').on('click', function() {
+                return _this.$el.find('.music_track_link').on('click', function(event) {
+                  event.preventDefault();
                   _this.$el.data('track-id', $(event.target).data('id'));
                   if (_this.$el.data('musicTrack')) {
                     return _this.$el.musicTrack('showMetadata');
@@ -352,7 +356,8 @@
                   return _this.$el.musicArtists();
                 }
               });
-              _this.$el.find('.music_artist_link').on('click', function() {
+              _this.$el.find('.music_artist_link').on('click', function(event) {
+                event.preventDefault();
                 _this.$el.data('artist-id', $(event.target).data('id'));
                 if (_this.$el.data('musicArtist')) {
                   return _this.$el.musicArtist('showMetadata');
@@ -360,7 +365,8 @@
                   return _this.$el.musicArtist();
                 }
               });
-              _this.$el.find('.music_release_link').on('click', function() {
+              _this.$el.find('.music_release_link').on('click', function(event) {
+                event.preventDefault();
                 _this.$el.data('release-id', $(event.target).data('id'));
                 if (_this.$el.data('musicRelease')) {
                   return _this.$el.musicRelease('showMetadata');

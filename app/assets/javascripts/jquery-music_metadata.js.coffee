@@ -12,7 +12,6 @@
       @options = $.extend({}, @defaults, options)
       @$el = $(el)
       $.data el, @constructor::jqueryInstanceMethodName, this
-      #@$el.addClass @constructor::jqueryInstanceMethodName
   
   MusicMetadata.Artists = class Artists extends MusicMetadata.Base
     jqueryInstanceMethodName: 'musicArtists'
@@ -93,7 +92,9 @@
               """
               @$el.find('tbody').append(rowHtml)
             
-            @$el.find('.music_artist_link').on 'click', =>
+            @$el.find('.music_artist_link').on 'click', (event) =>
+              event.preventDefault()
+              
               lastPage = @$el.data('current-page')
               @$el.data('artist-id', $(event.target).data('id'))
               @$el.data('last-artists-page', lastPage)
@@ -210,7 +211,8 @@
               """
               $('#music_releases tbody').append(rowHtml)
             
-            @$el.find('.music_release_link').on 'click', =>
+            @$el.find('.music_release_link').on 'click', (event) =>
+              event.preventDefault()
               @$el.removeData 'musicRelease'
               @$el.data('release-id', $(event.target).data('id'))
               
@@ -277,7 +279,8 @@
             else
               @$el.musicArtists()
          
-          @$el.find('.music_artist_link').on 'click', =>
+          @$el.find('.music_artist_link').on 'click', (event) =>
+            event.preventDefault()
             @$el.data('artist-id', $(event.target).data('id'))
             
             if @$el.data('musicArtist')
@@ -320,7 +323,8 @@
               """
               $('#music_tracks tbody').append(rowHtml)
             
-            @$el.find('.music_track_link').on 'click', =>
+            @$el.find('.music_track_link').on 'click', (event) =>
+              event.preventDefault()
               @$el.data('track-id', $(event.target).data('id'))
               
               if @$el.data('musicTrack')
@@ -372,7 +376,8 @@
             else
               @$el.musicArtists()
          
-          @$el.find('.music_artist_link').on 'click', =>
+          @$el.find('.music_artist_link').on 'click', (event) =>
+            event.preventDefault()
             @$el.data('artist-id', $(event.target).data('id'))
             
             if @$el.data('musicArtist')
@@ -380,7 +385,8 @@
             else
               @$el.musicArtist()
   
-          @$el.find('.music_release_link').on 'click', =>
+          @$el.find('.music_release_link').on 'click', (event) =>
+            event.preventDefault()
             @$el.data('release-id', $(event.target).data('id'))
             
             if @$el.data('musicRelease')
